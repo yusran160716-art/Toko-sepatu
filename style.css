@@ -1,0 +1,279 @@
+body {
+  background-color: #f7f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+
+  /* MANTRA BARU: Memaksa Footer Selalu di Bawah */
+  display: flex;
+  flex-direction: column; /* Menyusun konten dari atas ke bawah */
+  min-height: 100vh; /* Memaksa tinggi body minimal setinggi 100% layar pengguna */
+}
+.btn-beli {
+  background-color: #08a775fb; /* Warna Hijau WhatsApp asli */
+  color: white; /* Warna teks jadi putih */
+  padding: 12px 24px; /* Jarak ruang di dalam tombol (atas-bawah, kanan-kiri) */
+  margin-top: 20px; /* Memberikan jarak 20 pixel di sebelah atas luar tombol */
+  font-size: 16px; /* Ukuran teks tombol */
+  font-weight: bold; /* Membuat teks jadi tebal */
+  border: none; /* Menghapus garis tepi kotak yang kaku bawaan browser */
+  border-radius: 8px; /* Membuat sudut tombol jadi melengkung halus (modern) */
+  cursor: pointer; /* Mengubah kursor panah menjadi ikon "tangan menunjuk" saat dilewati mouse */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan halus agar tombol terlihat timbul */
+  transition: all 0.3s ease; /* Memberikan jeda animasi halus selama 0.3 detik saat kursor masuk/keluar */
+}
+.foto-produk {
+  width: 300px; /* Mengunci lebar gambar menjadi 300 pixel */
+  height: auto; /* Membiarkan tinggi gambar menyesuaikan otomatis agar proporsional dan tidak gepeng */
+  border-radius: 12px; /* Bonus: Membuat sudut gambar sedikit melengkung biar estetik */
+}
+.card-produk {
+  position: relative; /*jankar agar tidak pindah/*
+  background-color: white; /* Membuat warna latar belakang kartu jadi putih bersih */
+  max-width: 350px; /* Membatasi lebar maksimal kartu produk agar tidak melar semonitor */
+  padding: 25px; /* Jarak antara konten di dalam (gambar/teks) dengan tepi kartu */
+  border-radius: 16px; /* Membuat sudut kartu produk melengkung halus */
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05); /* Efek bayangan modern yang sangat halus */
+}
+.katalog-kontainer {
+  display: flex; /* Mengaktifkan mode Flexbox */
+  flex-wrap: wrap; /* Jika layar HP kekecilan, produk otomatis turun ke bawah (tidak dipaksa menyamping) */
+  justify-content: center; /* Membuat semua kartu produk berada di tengah-tengah layar */
+  gap: 30px; /* Memberikan jarak antar kartu produk agar tidak dempet-dempetan */
+  padding: 20px;
+  margin-top: 40px;
+}
+.card-produk h1 {
+  font-size: 22px; /* Mengecilkan ukuran teks judul dari standar bawaan browser */
+  color: #333333; /* Mengubah warna hitam pekat menjadi hitam arang yang lebih lembut di mata */
+  margin-bottom: 5px; /* Mempersempit jarak antara judul dengan deskripsi di bawahnya */
+}
+.btn-beli:hover {
+  background-color: #128c7e; /* Mengubah warna hijau WhatsApp menjadi sedikit lebih gelap */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Membuat bayangannya lebih tebal (efek tombol terangkat) */
+  transform: translateY(
+    -2px
+  ); /* Menggeser tombol naik ke atas sebanyak 2 pixel secara halus */
+}
+.card-produk:hover {
+  background-color: rgb(192, 193, 193);
+  box-shadow: #656767;
+  transform: translateY(-5px);
+}
+.box-harga {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Jarak antara harga asli dan harga promo */
+  margin-bottom: 15px; /* Jarak dari teks harga ke gambar di bawahnya */
+}
+
+.harga-asli {
+  color: #999999; /* Warna abu-abu pudar */
+  text-decoration: line-through; /* Mantra sakti untuk memberikan efek CORETAN pada teks */
+  font-size: 14px;
+}
+
+.harga-promo {
+  color: #e44d26; /* Warna merah oranye khas e-commerce untuk menarik mata */
+  font-weight: bold;
+  font-size: 16px;
+}
+.badge-diskon {
+  position: absolute; /* Mencabut elemen agar bisa melayang bebas */
+  top: 15px; /* Jarak 15 pixel dari tepi atas kartu */
+  left: 15px; /* Jarak 15 pixel dari tepi kiri kartu */
+  background-color: #e44d26; /* Warna merah promo */
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-align: left;
+  letter-spacing: 1px; /* Memberikan sedikit jarak antar huruf agar terlihat estetik */
+}
+/* Merias Kotak Utama Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Mantra sakti: Logo didorong ke kiri, Menu didorong ke kanan */
+  align-items: center; /* Membuat semua elemen di dalam navbar rata tengah secara vertikal */
+  background-color: #ffffff; /* Warna latar belakang putih bersih */
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Bayangan tipis di bawah navbar agar terlihat mengambang */
+}
+
+/* Merias Logo */
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.logo span {
+  color: #e44d26; /* Memberikan warna merah promo pada kata "Ku" agar menarik */
+}
+
+/* Merias Daftar Menu (ul) */
+.menu-navigasi {
+  display: flex; /* Membuat menu berjejer ke samping */
+  list-style: none; /* Menghilangkan titik hitam (bullet) bawaan browser */
+  gap: 20px; /* Jarak antar menu */
+  margin: 0;
+  padding: 0;
+}
+
+/* Merias Link Menu (a) */
+.menu-navigasi a {
+  text-decoration: none; /* Menghilangkan garis bawah pada link */
+  color: #666666;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Efek Hover saat Menu Disentuh Kursor */
+.menu-navigasi a:hover {
+  color: #e44d26; /* Berubah menjadi merah promo saat diarahkan kursor */
+}
+/* --- RESPONSIVE MOBILE LAYOUT --- */
+@media (max-width: 768px) {
+  /* 1. Ubah susunan Navbar Utama dari kiri-kanan menjadi atas-bawah */
+  .navbar {
+    flex-direction: column; /* Membuat Logo dan Menu menyusun ke bawah */
+    gap: 15px; /* Memberikan jarak antara Logo dan deretan menu */
+    padding: 15px;
+  }
+  /* --- RESPONSIVE DETAIL PRODUK (HP & TABLET) --- */
+  @media (max-width: 768px) {
+    /* Ubah kontainer utama dari sampingan menjadi susun ke bawah */
+    .detail-kontainer {
+      flex-direction: column;
+      margin: 20px;
+      padding: 15px;
+      gap: 20px;
+    }
+
+    /* Buat foto memenuhi lebar layar HP */
+    .detail-foto img {
+      height: auto; /* Memastikan tinggi gambar proporsional */
+    }
+
+    /* Berikan sedikit penyesuaian ukuran tulisan di HP agar pas */
+    .detail-info h1 {
+      font-size: 22px;
+    }
+
+    .harga-detail {
+      font-size: 20px;
+    }
+  }
+
+  /* 2. Ubah susunan daftar menu agar lebih renggang dan pas di layar HP */
+  .menu-navigasi {
+    gap: 15px;
+  }
+
+  .menu-navigasi a {
+    font-size: 14px; /* Mengecilkan sedikit ukuran teks menu di HP */
+  }
+}
+/* Merias Footer Toko */
+.footer-toko {
+  background-color: #222222; /* Warna abu-abu gelap premium */
+  color: #ffffff; /* Warna teks putih agar kontras */
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px; /* Memberikan jarak aman dari katalog produk di atasnya */
+  font-size: 14px;
+  /* MANTRA BARU: Dorong saya ke posisi paling bawah yang tersedia */
+  margin-top: auto;
+}
+/* --- GAYA HALAMAN DETAIL PRODUK --- */
+
+/* 1. Kontainer Utama: Membagi area menjadi kiri & kanan */
+.detail-kontainer {
+  display: flex;
+  max-width: 1000px; /* Membatasi lebar maksimal halaman agar tidak terlalu melebar */
+  margin: 50px auto; /* Membuat halaman otomatis berada di tengah-tengah layar */
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  gap: 40px; /* Jarak antara kolom foto dan kolom informasi */
+  text-align: left; /* Mengembalikan teks agar rapi rata kiri */
+}
+
+/* 2. Mengatur kolom foto di sebelah kiri */
+.detail-foto {
+  flex: 1; /* Memberikan porsi ruang yang seimbang */
+}
+
+.detail-foto img {
+  width: 100%; /* Memaksa gambar mengikuti lebar kotak pembungkusnya */
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* 3. Mengatur kolom info di sebelah kanan */
+.detail-info {
+  flex: 1; /* Memberikan porsi ruang yang seimbang */
+}
+
+/* Merias Badge "Best Seller" */
+.badge-promo {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Merias Harga */
+.harga-detail {
+  font-size: 24px;
+  font-weight: bold;
+  color: #e44d26;
+  margin: 15px 0;
+}
+
+.harga-coret {
+  font-size: 16px;
+  color: #999999;
+  text-decoration: line-through; /* Mantra pemberi garis coret pada harga diskon */
+  margin-left: 10px;
+  font-weight: normal;
+}
+
+.deskripsi-produk {
+  color: #555555;
+  line-height: 1.6; /* Memberikan jarak antar baris teks agar nyaman dibaca */
+  font-size: 15px;
+}
+
+/* 4. Merias Tombol Pilihan Ukuran */
+.list-ukuran {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap; /* Jika ukuran terlalu banyak, otomatis turun ke baris berikutnya */
+}
+
+.btn-ukuran {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 8px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Gaya tombol ketika ukuran sedang aktif/terpilih */
+.btn-ukuran.aktif,
+.btn-ukuran:hover {
+  background-color: #222222;
+  color: #ffffff;
+  border-color: #222222;
+}

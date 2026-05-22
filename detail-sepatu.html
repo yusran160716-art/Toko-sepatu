@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Produk - Sepatu Merah</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">TokoSepatu<span>Ku</span></div>
+      <ul class="menu-navigasi">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Produk</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+      </ul>
+    </nav>
+
+    <div class="detail-kontainer">
+      <div class="detail-foto">
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"
+          alt="Sepatu Merah"
+        />
+      </div>
+
+      <div class="detail-info">
+        <span class="badge-promo">BEST SELLER</span>
+        <h1>Sepatu Sneakers Olahraga - Red Fire</h1>
+        <p class="harga-detail">
+          Rp.199.000 <span class="harga-coret">Rp 400.000</span>
+        </p>
+
+        <p class="deskripsi-produk">
+          Sepatu olahraga premium dengan teknologi bantalan udara yang super
+          empuk. Cocok digunakan untuk running, gym, maupun gaya kasual
+          sehari-hari. Bahan rajut bersirkulasi udara tinggi membuat kaki Anda
+          tetap sejuk sepanjang hari.
+        </p>
+
+        <div class="pilihan-ukuran">
+          <h3>Pilih Ukuran:</h3>
+          <div class="list-ukuran">
+            <button class="btn-ukuran">40</button>
+            <button class="btn-ukuran aktif">41</button>
+            <button class="btn-ukuran">42</button>
+            <button class="btn-ukuran">43</button>
+          </div>
+        </div>
+
+        <br />
+        <div
+          class="form-pemesanan"
+          style="
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+          "
+        >
+          <h3>Formulir Pemesanan Kilat:</h3>
+          <br />
+
+          <div class="grup-input" style="margin-bottom: 15px; text-align: left">
+            <label style="display: block; font-weight: bold; margin-bottom: 5px"
+              >Nama Lengkap:</label
+            >
+            <input
+              type="text"
+              id="input-nama"
+              placeholder="Masukkan nama Anda..."
+              style="
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+              "
+            />
+          </div>
+
+          <div class="grup-input" style="margin-bottom: 15px; text-align: left">
+            <label style="display: block; font-weight: bold; margin-bottom: 5px"
+              >Alamat Lengkap Rumah:</label
+            >
+            <textarea
+              id="input-alamat"
+              rows="3"
+              placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan..."
+              style="
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-family: inherit;
+              "
+            ></textarea>
+          </div>
+
+          <br />
+          <button
+            class="btn-beli"
+            onclick="kirimPesanOtomatis()"
+            style="width: 100%"
+          >
+            Konfirmasi Pemesanan via WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-toko">
+      <p>&copy; 2026 TokoSepatuKu. All Rights Reserved. Built with ❤️</p>
+    </footer>
+    <script>
+      function kirimPesanOtomatis() {
+        // 1. Mengambil apa yang diketik user di kotak input
+        var namaPembeli = document.getElementById("input-nama").value;
+        var alamatPembeli = document.getElementById("input-alamat").value;
+
+        // Validasi darurat: Jika pembeli lupa mengisi nama atau alamat
+        if (namaPembeli === "" || alamatPembeli === "") {
+          alert("Mohon isi Nama dan Alamat Anda terlebih dahulu ya!");
+          return; // Berhenti dan jangan lanjut ke WhatsApp
+        }
+
+        // 2. Merakit teks pesanan rapi menggunakan format URL Encoding
+        var nomorWA = "6282285411408"; // Ganti dengan nomor WA Anda sendiri
+
+        // CARI BAGIAN INI DI JAVASCRIPT ANDA, LALU SESUAIKAN:
+        var teksHasilForm =
+          "Halo%20Admin%20TokoSepatuKu%2C%0A" +
+          "Saya%20mau%20konfirmasi%20pesanan%20berikut%3A%0A%0A" +
+          "*Produk%3A* Sepatu Red Fire - Ukuran 41%0A" + // <-- SELIPKAN BARIS BARU INI
+          "*Nama%3A*%20" +
+          encodeURIComponent(namaPembeli) +
+          "%0A" +
+          "*Alamat%3A*%20" +
+          encodeURIComponent(alamatPembeli) +
+          "%0A%0A" +
+          "Mohon%20segera%20diproses%20ya.%20Terima%20kasih!";
+
+        // 3. Membuka tab baru otomatis langsung ke WhatsApp membawa data isian!
+        window.open(
+          "https://wa.me/" + nomorWA + "?text=" + teksHasilForm,
+          "_blank",
+        );
+      }
+    </script>
+  </body>
+</html>
