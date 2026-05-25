@@ -26,12 +26,12 @@
 
       <div class="detail-info">
         <span class="badge-promo">BEST SELLER</span>
-        <h1>Sepatu Sneakers Olahraga - Red Fire</h1>
-        <p class="harga-detail">
+        <h1 id="nama-produk">Sepatu Sneakers Olahraga - Red Fire</h1>
+        <p class="harga-detail" id="harga-produk">
           Rp.199.000 <span class="harga-coret">Rp 400.000</span>
         </p>
 
-        <p class="deskripsi-produk">
+        <p class="deskripsi-produk" id="deskripsi-produk">
           Sepatu olahraga premium dengan teknologi bantalan udara yang super
           empuk. Cocok digunakan untuk running, gym, maupun gaya kasual
           sehari-hari. Bahan rajut bersirkulasi udara tinggi membuat kaki Anda
@@ -111,6 +111,21 @@
       <p>&copy; 2026 TokoSepatuKu. All Rights Reserved. Built with ❤️</p>
     </footer>
     <script>
+      // Fungsi ini akan langsung berjalan otomatis saat halaman web selesai dimuat
+      window.onload = function () {
+        // 1. Perintahkan browser untuk mengambil file data pintar kita
+        fetch("produk.json")
+          .then((response) => response.json()) // Ubah datanya agar dimengerti JavaScript
+          .then((data) => {
+            // 2. Suntikkan data dari file JSON ke dalam HTML sesuai ID-nya
+            document.getElementById("nama-produk").innerText = data.nama;
+            document.getElementById("harga-produk").innerText = data.harga;
+            document.getElementById("deskripsi-produk").innerText =
+              data.deskripsi;
+          })
+          .catch((error) => console.log("Aduh, gagal ambil data:", error));
+      };
+
       function kirimPesanOtomatis() {
         // 1. Mengambil apa yang diketik user di kotak input
         var namaPembeli = document.getElementById("input-nama").value;
